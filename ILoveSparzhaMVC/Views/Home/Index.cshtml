@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ILoveSparzhaMVC.Models.UserViewModel>
+
+@{
+    ViewBag.Title = "Любители спаржи";
+}
+
+<h2>Любители спаржи</h2>
+
+<p>
+    @Html.ActionLink("Заявка на всупление в клуб", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+    </tr>
+
+@foreach (var user in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => user.Date)
+        </td>
+        <td>
+            <p>@user.Name ел спаржу @user.Counter раз</p>
+        </td>
+    </tr>
+}
+
+</table>
